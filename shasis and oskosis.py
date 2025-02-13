@@ -1,18 +1,17 @@
 n = int(input())
-birds = [int(i) for i in input().split()]
+a = list(map(int, input().split()))
 m = int(input())
 
 for _ in range(m):
-    x, y = map(int, input().split())
-    x -= 1
-    y -= 1
+    xi, yi = map(int, input().split())
+    index = xi - 1
+    original = a[index]
+    left = yi - 1
+    right = original - yi
+    a[index] = 0
+    if index > 0:
+        a[index - 1] += left
+    if index < n - 1:
+        a[index + 1] += right
 
-    if x > 0:
-        birds[x - 1] += y
-    if x < n - 1:
-        birds[x + 1] += birds[x] - y
-    
-    birds[x] = 0
-
-for b in birds:
-    print(b)
+print('\n'.join(map(str, a)))
