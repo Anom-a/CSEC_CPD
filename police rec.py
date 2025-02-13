@@ -1,11 +1,15 @@
 n = int(input())
-events =[int(i) for i in input().split()]
-overAll = sum(events)
-j=len(events) -1
-count=0
-while events[j] !=-1:
-	count+=1
-	j-=1
-result = -1*(overAll-count)
-print(result)
-	
+e = [int(i) for i in input().split()]
+
+o = 0
+u = 0
+
+for x in e:
+    if x > 0:
+        o += x
+    elif o > 0:
+        o -= 1
+    else:
+        u += 1
+
+print(u)
